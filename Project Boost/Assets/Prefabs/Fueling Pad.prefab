@@ -10,17 +10,22 @@ PrefabInstance:
     - target: {fileID: 4733229299530805282, guid: 2c18030539d6bff49af64d8f9fa9d7eb,
         type: 3}
       propertyPath: m_Name
-      value: 
+      value: Fueling Pad
+      objectReference: {fileID: 0}
+    - target: {fileID: 4733229299530805282, guid: 2c18030539d6bff49af64d8f9fa9d7eb,
+        type: 3}
+      propertyPath: m_TagString
+      value: Fuel
       objectReference: {fileID: 0}
     - target: {fileID: 1033331066326907972, guid: 2c18030539d6bff49af64d8f9fa9d7eb,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -20.3
+      value: -14.22
       objectReference: {fileID: 0}
     - target: {fileID: 1033331066326907972, guid: 2c18030539d6bff49af64d8f9fa9d7eb,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.83
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1033331066326907972, guid: 2c18030539d6bff49af64d8f9fa9d7eb,
         type: 3}
@@ -77,15 +82,10 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 5.422
       objectReference: {fileID: 0}
-    - target: {fileID: 1730592498950284052, guid: 2c18030539d6bff49af64d8f9fa9d7eb,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1806646706594257057, guid: 2c18030539d6bff49af64d8f9fa9d7eb,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: d4dc72229ab408945916c040916954d6, type: 2}
+      objectReference: {fileID: 2100000, guid: 2fdef341885c3b34394b4cb987889867, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2c18030539d6bff49af64d8f9fa9d7eb, type: 3}
