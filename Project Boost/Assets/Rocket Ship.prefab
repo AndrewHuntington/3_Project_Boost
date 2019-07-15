@@ -149,7 +149,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d4dc72229ab408945916c040916954d6, type: 2}
+  - {fileID: 2100000, guid: d06e8c56aca19cf41a5b365b56d3ad96, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -228,12 +228,12 @@ Rigidbody:
   m_GameObject: {fileID: 1555187632472354894}
   serializedVersion: 2
   m_Mass: 0.1
-  m_Drag: 0
+  m_Drag: 0.2
   m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 56
   m_CollisionDetection: 0
 --- !u!82 &8670245869954218526
 AudioSource:
@@ -247,7 +247,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 4a91cff13f4fdb34a8bafaf096a1e6ce, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.85
   m_Pitch: 0.8
   Loop: 1
   Mute: 0
