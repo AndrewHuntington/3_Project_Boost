@@ -1,10 +1,9 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Obstacle : MonoBehaviour
-{    
+public class MoveObstacle : MonoBehaviour
+{
     // this code is a clusterfuck. maybe clean up some day...
     Vector3 obstaclePostion;
     [SerializeField] float startingYValue = 29f;
@@ -34,14 +33,15 @@ public class Obstacle : MonoBehaviour
             {
                 complete = true;
             }
-        } else if (complete)
+        }
+        else if (complete)
         {
             UpMovement();
             if (currentYPos >= startingYValue)
             {
                 complete = false;
             }
-        }   
+        }
     }
 
     private void UpMovement()
@@ -56,5 +56,4 @@ public class Obstacle : MonoBehaviour
         transform.position = obstaclePostion;
 
     }
-    
 }
