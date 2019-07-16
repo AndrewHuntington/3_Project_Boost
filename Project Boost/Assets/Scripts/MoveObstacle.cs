@@ -6,6 +6,7 @@ public class MoveObstacle : MonoBehaviour
 {
     // this code is a clusterfuck. maybe clean up some day...
     Vector3 obstaclePostion;
+    [SerializeField] bool turnOn;
     [SerializeField] float startingYValue = 29f;
     float currentXPos;
     float currentYPos;
@@ -26,22 +27,26 @@ public class MoveObstacle : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (currentYPos <= startingYValue && !complete)
+        while (turnOn)
         {
-            DownMovement();
-            if (currentYPos <= 15)
+            if (currentYPos <= startingYValue && !complete)
             {
-                complete = true;
+                DownMovement();
+                if (currentYPos <= 15)
+                {
+                    complete = true;
+                }
+            }
+            else if (complete)
+            {
+                UpMovement();
+                if (currentYPos >= startingYValue)
+                {
+                    complete = false;
+                }
             }
         }
-        else if (complete)
-        {
-            UpMovement();
-            if (currentYPos >= startingYValue)
-            {
-                complete = false;
-            }
-        }
+        
     }
 
     private void UpMovement()

@@ -44,7 +44,7 @@ public class Rocket : MonoBehaviour
     private void Thrust()
     {
         float thrustThisFrame = mainThrust * Time.deltaTime;
-        if (Input.GetKey(KeyCode.Space)) // can thrust while rotating
+        if (Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.W)) // can thrust while rotating
         {
             // AddRelativeForce() -- adds a thrust force to push an object in its currect forward direction
             rigidBody.AddRelativeForce(Vector3.up * thrustThisFrame);
