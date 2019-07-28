@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class Rocket : MonoBehaviour
@@ -18,6 +19,8 @@ public class Rocket : MonoBehaviour
     Rigidbody rigidBody;
     AudioSource audioSource;
 
+    bool collisionOff = false;
+
     enum State { Alive, Dying, Transcending };
     State state = State.Alive;
 
@@ -35,12 +38,40 @@ public class Rocket : MonoBehaviour
         {
             RespondToThrustInput();
             RespondToRotateInput();
-        }   
+        }
+
+        // will only work with dev builds
+        if (Debug.isDebugBuild) 
+        {
+            RespondToDebugKeys();
+        }
+    }
+
+    private void RespondToDebugKeys()
+    {
+        ToggleCollisionDetection();
+        SkipLevel();
+    }
+
+    private void ToggleCollisionDetection()
+    {
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            collisionOff = !collisionOff;
+        }
+    }
+
+    private void SkipLevel()
+    {
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            LoadNextLevel();
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (state != State.Alive) { return; } // ignore collisions when dead
+        if (state != State.Alive || collisionOff) { return; } // ignore collisions when dead or C is pressed
 
         switch (collision.gameObject.tag)
         {
@@ -80,7 +111,16 @@ public class Rocket : MonoBehaviour
 
     private void LoadNextLevel()
     {
-        SceneManager.LoadScene(1); // todo allow for more than 2 levels
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        int nextSceneIndex = currentSceneIndex + 1;
+        if (nextSceneIndex >= SceneManager.sceneCountInBuildSettings)
+        {
+            LoadFirstLevel();
+        }
+        else
+        {
+            SceneManager.LoadScene(nextSceneIndex);
+        }
     }
 
     private void RespondToThrustInput()
